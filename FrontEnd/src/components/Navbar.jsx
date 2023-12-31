@@ -20,12 +20,17 @@ const Navbar = () => {
               <Link class="nav-link" to="/products">product</Link>
             </li>
             <li class="nav-item">
-              <Link class="nav-link" to="/contact">contact</Link>
+              <Link class="nav-link" to="/contact">Contact us</Link>
             </li><li class="nav-item">
               <Link class="nav-link" to="/about">about</Link>
-            </li><li class="nav-item">
+            </li>
+            <li class="nav-item">
               <Link class="nav-link" to="/login">login</Link>
             </li>
+            <li class="nav-item">
+              <Link class="nav-link" to="/contactus">Contact US Listing</Link>
+            </li>
+            
           </ul>
           <form class="d-flex" role="search">
             {/* <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"/> */}

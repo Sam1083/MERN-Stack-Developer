@@ -2,8 +2,9 @@ const express=require("express")
 const app=express();
 const PORT=8000;
 const connectDB=require("./Config/connectDb");
-const userRoute=require("./routes/user.route")
+const routes=require("./routes/index")
 var bodyParser = require('body-parser')
+const cors=require("cors")
 
 connectDB();
 // parse application/x-www-form-urlencoded
@@ -11,9 +12,10 @@ app.use(bodyParser.urlencoded({ extended: false }))
 
 // parse application/json
 app.use(bodyParser.json())
+app.use(cors("*"))
 
 
-app.use("/api",userRoute);
+app.use("/api",routes);
 
 app.use("/home", (req, res) => {
     res.json({ message: "Hello from London" })

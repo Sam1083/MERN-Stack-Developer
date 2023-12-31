@@ -12,6 +12,8 @@ import Login from './components/Login';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Counter from './components/Counter';
+import ContactUslist from './components/ContactUslist';
+
 
 
 
@@ -28,6 +30,7 @@ function App() {
       <Route path="/Contact" element={<Contact/>}></Route>
       <Route path="/About" element={<About/>}></Route>
       <Route path="/Login" element={<Login/>}></Route>  
+      <Route path="/contactus" element={<ContactUslist/>}></Route>  
     </Routes>
     
     <ToastContainer/>

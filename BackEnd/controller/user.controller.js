@@ -1,9 +1,12 @@
 const User=require("../model/user.model")
-
+var bcrypt = require('bcryptjs');
 
 exports.store=async(req,res)=>{
-    console.log(req.body);
-try{
+    const {password}=req.body;
+    try{
+        const salt = await bcrypt.genSalt(10);
+        const hashedPassword = await bcrypt.hash(password, salt);
+        req.body.password=hashedPassword;
     const user =await User.create(req.body)
     res.json({message:"User Created Successfully",status:201,success:true,user})
 }
