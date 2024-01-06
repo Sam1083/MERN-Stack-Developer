@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react'
-
+import { Link } from 'react-router-dom'
 
 
 
@@ -9,9 +9,9 @@ const Products = () => {
 
 
   const fetchData=async()=>{
-  const response=await fetch("https://fakestoreapi.com/products");
+  const response=await fetch("http://localhost:8000/api/product");
   const data=await response.json();
-  setProducts(data);
+  setProducts(data.products);
 
   }
 
@@ -39,8 +39,7 @@ return(
   <img src={item.image} class="card-img-top" alt="..."/>
   <div class="card-body">
     <h5 class="card-title">{item.title}</h5>
-    <p class="card-text">{item.description.slice(0,50)}</p>
-    <a href="#" class="btn btn-primary">{item.price}</a>
+    <Link to={`/Products/${item._id}`} class="btn btn-primary">{item.price}</Link>
   </div>
 </div>
 )

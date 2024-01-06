@@ -13,6 +13,7 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Counter from './components/Counter';
 import ContactUslist from './components/ContactUslist';
+import ProductDescription from './components/ProductDescription';
 
 
 
@@ -27,6 +28,7 @@ function App() {
     <Routes>
       <Route path="/" element={<Home/>}></Route>
       <Route path="/Products" element={<Products/>}></Route>
+      <Route path="/Products/:id" element={<ProductDescription/>}></Route>
       <Route path="/Contact" element={<Contact/>}></Route>
       <Route path="/About" element={<About/>}></Route>
       <Route path="/Login" element={<Login/>}></Route>  
