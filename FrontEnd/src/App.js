@@ -14,7 +14,8 @@ import 'react-toastify/dist/ReactToastify.css';
 import Counter from './components/Counter';
 import ContactUslist from './components/ContactUslist';
 import ProductDescription from './components/ProductDescription';
-
+import Register from './components/Register';
+import Dashboard from './components/Dashboard';
 
 
 
@@ -32,7 +33,10 @@ function App() {
       <Route path="/Contact" element={<Contact/>}></Route>
       <Route path="/About" element={<About/>}></Route>
       <Route path="/Login" element={<Login/>}></Route>  
+      <Route path="/register" element={<Register/>}></Route>  
       <Route path="/contactus" element={<ContactUslist/>}></Route>  
+      <Route path="/dashboard" element={<Dashboard/>}></Route>  
+
     </Routes>
     
     <ToastContainer/>

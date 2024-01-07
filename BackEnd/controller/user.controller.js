@@ -15,6 +15,26 @@ catch(err){
 }
 }
 
+exports.login=async(req,res,next)=>{
+    try{
+        const user=await User.findOne({email:req.body.email})
+        if(!user){
+          return  res.json({status:404,message:"User not found",success:false})
+        }
+        const passwordMatch=await bcrypt.compare(req.body.password,user.password);
+     
+       if(passwordMatch){
+        return res.json({success:true,message:"Password matches",status:200})
+       }
+       else{
+        return res.json({success:false,message:"Password does not  matches",status:400})
+       }
+    }
+    catch(err){
+       return console.log(err)
+    }
+}
+
 
 exports.index=async(req,res)=>{
 try{
