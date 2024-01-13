@@ -1,5 +1,6 @@
 const User=require("../model/user.model")
 var bcrypt = require('bcryptjs');
+const jwt=require("jsonwebtoken")
 
 exports.store=async(req,res)=>{
     const {password}=req.body;
@@ -24,7 +25,9 @@ exports.login=async(req,res,next)=>{
         const passwordMatch=await bcrypt.compare(req.body.password,user.password);
      
        if(passwordMatch){
-        return res.json({success:true,message:"Password matches",status:200})
+        var token = jwt.sign({_id:user.id }, process.env.JWT_SECRET);
+        
+        return res.json({success:true,message:"Password matches",status:200,token})
        }
        else{
         return res.json({success:false,message:"Password does not  matches",status:400})

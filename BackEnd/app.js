@@ -1,10 +1,11 @@
 const express=require("express")
 const app=express();
-const PORT=8000;
+const PORT=process.env.PORT || 8000;
 const connectDB=require("./Config/connectDb");
 const routes=require("./routes/index")
 var bodyParser = require('body-parser')
 const cors=require("cors")
+const dotenv=require("dotenv").config();
 
 connectDB();
 // parse application/x-www-form-urlencoded
